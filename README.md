@@ -11,6 +11,8 @@ This repo contains:
 Quotes to remember:
 Lewis Carroll was a Victorian nerd, we can easily think of him as a python user :)
 
+
+
 Roadmap:
 - Itroduction (Who)
     - github profile
@@ -42,9 +44,27 @@ Roadmap:
       define players and check that the first player is always Alice
     - nametuple, typing
       #ToDo
+    - if name === main
     - annotation and docstring (google version)
 - Extra
     - drawing with my supercool unused wacom
         - skeches of stickmans with laptops
         - quotes 
         - stickers, meme (ask Miguel), jokes 
+
+# Installation
+
+```console
+conda env create -n carrollgames -f environment.yml
+
+```
+
+```console
+conda activate carrollgames
+
+```
+
+```console
+conda env update --file environment.yml  --prune
+
+```

@@ -1,0 +1,8 @@
+name: carrollgames 
+channels:
+  - defaults
+dependencies:
+  - requests
+  - bs4
+  - html5lib
+  - numpy
