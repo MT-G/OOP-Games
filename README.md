@@ -4,9 +4,7 @@ All generous trips & tricks, courtesy of Dj Pato
 
 (Put the music on!)
 
-This repo contains:
-- slide
-- module
+
 
 Quotes to remember:
 Lewis Carroll was a Victorian nerd, we can easily think of him as a python user :)
@@ -52,19 +50,36 @@ Roadmap:
         - quotes 
         - stickers, meme (ask Miguel), jokes 
 
-# Installation
+## Description
+
+This repo contains:
+- slide for the PyDayBCN 
+- module
+
+## Installation
+
+### Create an enviroment
+
+How to create and enviroment:
 
 ```console
 conda env create -n carrollgames -f environment.yml
 
 ```
+where ```carrollgames``` is the name of the local enviroment.
+
+How to activate the enviroment:
 
 ```console
 conda activate carrollgames
 
 ```
+### Install or remove packages from the environment
+
+How to edit ```environment.yml```, add or remove packages:
 
 ```console
 conda env update --file environment.yml  --prune
 
 ```
+prune works also if you don't delite packages from your file ```environment.yml```
