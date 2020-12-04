@@ -1,4 +1,4 @@
-# PyDayBCN 
+# PyDayBCN 2020
 
 All generous trips & tricks, courtesy of Dj Pato
 
@@ -91,4 +91,4 @@ The books used in this repository are in the Public Domain, see the licence.txt 
 ## About Project Gutenberg
 
 Project Gutenberg is a project to collect and archive public domain texts.
-Please see [Projcet Gutember Site](https://www.gutenberg.org/)
+Please see [Projcet Gutenberg Site](https://www.gutenberg.org/)
