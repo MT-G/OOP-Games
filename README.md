@@ -83,3 +83,12 @@ conda env update --file environment.yml  --prune
 
 ```
 prune works also if you don't delite packages from your file ```environment.yml```
+
+## Licence
+
+The books used in this repository are in the Public Domain, see the licence.txt file for details.
+
+## About Project Gutenberg
+
+Project Gutenberg is a project to collect and archive public domain texts.
+Please see [Projcet Gutember Site](https://www.gutenberg.org/)
