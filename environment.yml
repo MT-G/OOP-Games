@@ -6,3 +6,5 @@ dependencies:
   - bs4
   - html5lib
   - numpy
+  - nltk
+  - spacy
