@@ -7,4 +7,4 @@ dependencies:
   - html5lib
   - numpy
   - nltk
-  - spacy
+  - matplotlib
