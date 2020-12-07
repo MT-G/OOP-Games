@@ -9,102 +9,8 @@ from dataclasses import dataclass, field
 import requests
 from bs4 import BeautifulSoup
 
-# create test
-# create property size
-
-
-class WonderlandMember:
-    """
-    Creates a member of Wonderland
-    """
-
-    def __init__(
-        self, name: str, species: str, fantastic: bool = False, age: int = None
-    ):
-        self.name = name
-        self.species = species
-        self._localfantastic = None
-        self.age = age
-
-    @property
-    def fantastic(self):
-        return self._localfantastic
-
-    @fantastic.setter
-    def fantastic(self):
-
-        if self.fantastic is None:
-            return f"Here you are! The only human in Wonderland: {self.name}"
-        else:
-            return f"This is fantastic character: {self.name}"
-
-    @staticmethod
-    def get_quotes(url):
-        """Get all the quotes of a webpage and return a list
-
-        Args:
-            url ([type]): webpage 
-
-        Returns:
-            list: list of quotes in the webpage
-        """
-        r = requests.get(url)
-        soup = BeautifulSoup(r.content, "html.parser")
-        quotes = []
-        for row in soup.find_all("div", attrs={"class": "quoteText"}):
-            quote = row.text.split("―\n")[0]
-            quotes.append(quote)
-        return quotes
-
-    @staticmethod
-    def print_random_quote(quotes):
-        n = random.randrange(len(quotes))
-        print(quotes[n])
-
-    # here u can add an initial phrase to introcude the chacrter
-    # But u have to pick the frase from another file with something
-    def words_play(self, words) -> str:
-        return f"{self.name} says:- {words}-"
-
-    # I wonder if I've been changed in
-    # the night?  Let me think:  was I the same when I got up this
-    # morning?  I almost think I can remember feeling a little
-    # different.  But if I'm not the same, the next question is, Who in
-    # the world am I?  Ah, THAT'S the great puzzle!'
-
-    # I'll try if I know all the
-    # things I used to know.  Let me see:  four times five is twelve,
-    # and four times six is thirteen, and four times seven is--oh dear!
-    # I shall never get to twenty at that rate!  However, the
-    # Multiplication Table doesn't signify
-
-    # “I’m sure I ’m not Ada,” she said, “for her hair goes in such long ringlets, and mine doesn’t go in ringlets at all;
-    # and I ’m sure I can ’t be Mabel, for I know all sorts of things, and she, oh! she knows such a very little!
-    # Besides, she’s she,
-    # and I’m I, and—oh dear, how puzzling it all is! I ’ll try if I know all the things I used to know.
-
-    # Let me see: four times five is twelve, and four times six is thirteen, and four times seven is—oh dear!
-    # I shall never get to twenty at that rate! However, the Multiplication Table don’t signify..
-
-    @classmethod
-    def hero(cls) -> "WonderlandMember":
-        return cls("Alice", "human", False, 12)
-
-
-class Rulers(WonderlandMember):
-
-    """
-    Creates the Rulers Member in Wonderland
-    """
-
-    def __init__(self, name, species, peerage, sport, fantastic=True, age=None):
-        super().__init__(name, species, fantastic, age)
-        self.peerage = peerage
-        self.sport = sport
-
-    @classmethod
-    def queen_of_hearts(cls):
-        return cls("Queen of hearths", "human", "Queen", "criquet")
+from characters import *
+from raw_book import get_raw_book, get_plot
 
 
 @dataclass
@@ -130,7 +36,7 @@ class Player:
         elif (self.player_number == 2) and (self.name != "Alice"):
             raise ValueError("The second player has to be Alice")
         else:
-            print("Let us play")
+            print("Players are in lexicographic order!...Let's start to play!")
 
 
 class RollingBaseMultiplicationTable:
@@ -183,6 +89,7 @@ class RollingBaseMultiplicationTable:
         return M
 
 
+
 class WriteTxt:
     def __init__(self, paragraph_name):
         self.paragraph_name = paragraph_name
@@ -209,7 +116,7 @@ class ReadTxt:
             self.paragraph.close()
 
 
-class Dialog(RollingBaseMultiplicationTable):
+class Game(RollingBaseMultiplicationTable):
     def __init__(self, player_1: Player, player_2: Player, size=12):
         super().__init__(size)
         self.player_1 = player_1
@@ -220,12 +127,8 @@ class Dialog(RollingBaseMultiplicationTable):
         with WriteTxt(paragraph_name) as w:
             w.write(content)
 
-    def read_withclass(self, file):
-        with ReadTxt(file) as r:
-            rr = r.read()
-        return rr.split("\n\n")
 
-    def read_withclass2(self, file):
+    def read_withclass(self, file):
         with ReadTxt(file) as r:
             paragraph = r.read()
         par_list = paragraph.split("\n\n")
@@ -233,7 +136,7 @@ class Dialog(RollingBaseMultiplicationTable):
 
     def talk_and_play(self, chapter_name, paragraph_content):
         paragraph = self.write_paragraph(chapter_name, paragraph_content)
-        first_sentence, second_sentence = self.read_withclass2(
+        first_sentence, second_sentence = self.read_withclass(
             chapter_name + ".txt")
 
         M = self.change_base_table()
@@ -261,29 +164,20 @@ class Dialog(RollingBaseMultiplicationTable):
         print(
             f"{self.player_2.name} says:Ahahah! See, Wonderland is not a decimal-based universe."
         )
-        print(f"{self.player_2.name} says:The game fails becuse .")
+        print(f"{self.player_2.name} says:The only way to get 20 is multiplying 4 x 13 = 1X")
 
 
-# devo cambiarlo fino a 13
+
 
 if __name__ == "__main__":
 
-    # alice = WonderlandMember.hero()
-    # paragraph_content = "I wonder if I've been changed in the night?\nLet me think:  was I the same when I got up this morning?\nI almost think I can remember feeling a little different.\nBut if I am not the same, the next question is, Who inthe world am I?\nAh, that is the great puzzle!\n\nI will try if I know all the things I used to know."
-    # par = alice.write_paragraph("CHAPTER II: The Pool of Tears", paragraph_content)
-    # print(alice.read_withclass("CHAPTER II: The Pool of Tears.txt"))
-    # print()
-    # a, b = alice.read_withclass2("CHAPTER II: The Pool of Tears.txt")
-    # print(a)
 
     alice = WonderlandMember.hero()
-    queen = Rulers.queen_of_hearts()
+    rabbit  StrangeAnimal.white_rabbit()
     player_1 = Player(alice.name)
-    player_2 = Player(queen.name)
+    player_2 = Player(rabbit.name)
     paragraph_content = "I wonder if I've been changed in the night?\nLet me think:  was I the same when I got up this morning?\nI almost think I can remember feeling a little different.\nBut if I am not the same, the next question is, Who inthe world am I?\nAh, that is the great puzzle!\n\nI will try if I know all the things I used to know."
     chapter_name = "CHAPTER II: The Pool of Tears"
-    # print(player_1.check_who_plays())
-
-    # date = Date(*input().split())
-    game = Dialog(player_1, player_2)
+    
+    game = Game(player_1, player_2)
     game.talk_and_play(chapter_name, paragraph_content)
