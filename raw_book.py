@@ -1,3 +1,10 @@
+"""
+File: raw_book.py
+Author: MTG
+Topic: request
+This module implements get a book from Project Gutenber and plot the frequency of a word that apper in the book.
+"""
+
 import requests
 import matplotlib.pyplot as plt
 import nltk
