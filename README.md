@@ -8,6 +8,17 @@
 | Guess Number  | algo for guessing an integer      | [guess_number.py](guess_number.py)     |
 | Find Day of the Week    | algo for finding the day of the week given the date       | [day_of_the_week.py](day_of_the_week.py)   |
 
+
+| Code     | Description | 
+| :---        |    :----:   |          ---: |
+| [characters.py](characters.py)    | define characters        | 
+| [raw_book.py](raw_book.py)  | get book from Project Gutenberg      | 
+| [players.py](players.py)    | define players of the game       | 
+
+## PyDayBCN 2020
+
+Presentation using RISE can be found [here](slides.ipynb)
+
 ## Installation
 
 ### Create an enviroment
