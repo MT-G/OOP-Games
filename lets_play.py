@@ -1,3 +1,11 @@
+"""
+File: lets_play.py
+Author: MTG
+Topic: Maths riddle
+This module implements a Carrollian treatment of the base of a number system as it appears in Alice in Wonderland.
+F. Abeles, Multiplication in changing bases: A note on Lewis Carroll,  Historia Mathematica, vol. 3, 1976
+"""
+
 import numpy as np
 import string
 import random
