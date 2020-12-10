@@ -1,3 +1,10 @@
+"""
+File: characters.py
+Author: MTG
+Topic: class instance, classmethod, inheritance, propertu, getter and setter, 
+This module implements class for defining charcters of  the book Alice in Wonderland.
+"""
+
 import requests
 import random
 from bs4 import BeautifulSoup
