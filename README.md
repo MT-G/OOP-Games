@@ -45,4 +45,4 @@ Please see [Projcet Gutenberg Site](https://www.gutenberg.org/)
 
 ## Licence
 
-This repository is under [MIT Licence] (MIT_LICENCE).
+This repository is under [MIT Licence] (MIT_LICENSE.md).
