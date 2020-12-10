@@ -10,7 +10,7 @@
 
 
 | Code     | Description | 
-| :---        |    :----:   |          ---: |
+| :---        |    :----:   |   
 | [characters.py](characters.py)    | define characters        | 
 | [raw_book.py](raw_book.py)  | get book from Project Gutenberg      | 
 | [players.py](players.py)    | define players of the game       | 
