@@ -188,33 +188,8 @@ class DayOfTheWeek:
         return f"{self.__class__.__name__}(data='{self.data}')"
 
 
-@dataclass
-class Player:
-    """Create Player Dataclass
-    """
 
-    name: str
-    count_player: ClassVar[int] = 0
-    player_number: int = field(init=False)
-
-    def __post_init__(self):
-        self.player_number = Player.update_counter()
-
-    @classmethod
-    def update_counter(cls):
-        cls.count_player += 1
-        return cls.count_player
-
-    def check_who_plays(self):
-        if (self.player_number == 1) and (self.name == "Alice"):
-            raise ValueError("The first player cannot be Alice")
-        elif (self.player_number == 2) and (self.name != "Alice"):
-            raise ValueError("The second player has to be Alice")
-        else:
-            print("Let us play")
-
-
-class Dialog(DayOfTheWeek):
+class Game(DayOfTheWeek):
     def __init__(self, date, player_1: Player, player_2: Player):
         super().__init__(date)
         self.player_1 = player_1
@@ -223,7 +198,7 @@ class Dialog(DayOfTheWeek):
 
     def talk_and_play(self):
 
-        print(f"{self.player_1.name} says: What day of the week was {self.date}?")
+        print(f"{self.player_1.name} says: What day of the week was 9 November 2020?")
         print(f"{self.player_2.name} says: I dont know!")
         print(f"{self.player_1.name} says: It was {self.answer()}")
         print(f"{self.player_2.name} says: Wow, how have you make it!")
@@ -237,5 +212,5 @@ if __name__ == "__main__":
     player_2 = Player(alice.name)
     # print(player_1.check_who_plays())
     date = Date("2020", "November", "9")
-    game = Dialog(date, player_1, player_2)
+    game = Game(date, player_1, player_2)
     game.talk_and_play()
