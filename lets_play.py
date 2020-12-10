@@ -8,9 +8,8 @@ from typing import NamedTuple, ClassVar
 from dataclasses import dataclass, field
 import requests
 from bs4 import BeautifulSoup
-
 from characters import *
-from raw_book import get_raw_book, get_plot
+
 
 
 @dataclass
@@ -171,13 +170,14 @@ class Game(RollingBaseMultiplicationTable):
 
 if __name__ == "__main__":
 
-
     alice = WonderlandMember.hero()
-    rabbit  StrangeAnimal.white_rabbit()
+    rabbit = StrangeAnimal.white_rabbit()
     player_1 = Player(alice.name)
     player_2 = Player(rabbit.name)
+    print(player_1)
+    print(player_2)
     paragraph_content = "I wonder if I've been changed in the night?\nLet me think:  was I the same when I got up this morning?\nI almost think I can remember feeling a little different.\nBut if I am not the same, the next question is, Who inthe world am I?\nAh, that is the great puzzle!\n\nI will try if I know all the things I used to know."
     chapter_name = "CHAPTER II: The Pool of Tears"
-    
+    print()
     game = Game(player_1, player_2)
     game.talk_and_play(chapter_name, paragraph_content)
