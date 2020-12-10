@@ -23,7 +23,7 @@ Presentation using RISE can be found [here](slides.ipynb)
 
 ### Create an enviroment
 
-How to create and enviroment:
+How to create an enviroment:
 
 ```console
 conda env create -n carrollgames -f environment.yml
