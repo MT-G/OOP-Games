@@ -1,10 +1,12 @@
-# PyDayBCN 2020
+# OOP in Lewis Carroll's Games
 
 ## Description
 
-This repo contains:
-- slide for the PyDayBCN 
-- python modules
+| Game     | Description | Code    |
+| :---        |    :----:   |          ---: |
+| 42 Riddle    | multilication table        | [lets_play.py](lets_play.py)   |
+| Guess Number  | algo for guessing an integer      | [guess_number.py](guess_number.py)     |
+| Find Day of the Week    | algo for finding the day of the week given the date       | [day_of_the_week.py](day_of_the_week.py)   |
 
 ## Installation
 
