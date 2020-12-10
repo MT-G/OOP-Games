@@ -1,5 +1,5 @@
 """
-File: dayoftheweek_game.py
+File: guess_number.py
 Author: MTG
 Topic: Game
 
@@ -69,24 +69,24 @@ class GuessNumber:
         return new_number
 
     @staticmethod
-    def check_odd_even(number):
+    def check_odd_even(number) -> bool:
         if number % 2 == 0:
             return True
         else:
             return False
 
-    def first_answer(self):
+    def first_answer(self) -> tuple:
 
         n = 3 * self.number
         return (n, GuessNumber.check_odd_even(n))
 
-    def second_answer(self, n):
+    def second_answer(self, n: int) -> tuple:
 
         first_routine_num = GuessNumber.odd_even_routine(n)
         n_2 = 3 * first_routine_num
         return (n_2, GuessNumber.check_odd_even(n))
 
-    def third_answer(self, n_2):
+    def third_answer(self, n_2: int) -> int:
 
         second_routine_num = GuessNumber.odd_even_routine(n_2)
 
@@ -97,7 +97,7 @@ class GuessNumber:
         n_3 = second_routine_num + number_append
         return n_3 // 49
 
-    def answer(self, ans_1, ans_2, n_3):
+    def answer(self, ans_1, ans_2, n_3) -> int:
         n_temp = (n_3 * 4) - 15
 
         if (ans_1 == True) and (ans_2 == False):
@@ -129,7 +129,7 @@ class Game(GuessNumber):
             )
 
     def pick_number(self) -> int:
-        return int(input())
+        return int(input(f"{self.player_2.name} says: Picked!"))
 
     def set_number(self, number: int):
         self.number = number
@@ -170,8 +170,10 @@ class Game(GuessNumber):
 
 if __name__ == "__main__":
 
-    player_1 = Player(WonderlandMember("Cat", "something").name)
-    player_2 = Player(WonderlandMember.hero().name)
+    alice = WonderlandMember.hero()
+    rabbit = StrangeAnimal.white_rabbit()
+    player_1 = Player(rabbit.name)
+    player_2 = Player(alice.name)
 
     game = Game(player_1, player_2)
     game.talk_and_play()
