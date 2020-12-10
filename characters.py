@@ -7,11 +7,12 @@ class WonderlandMember:
     Creates a character of Wonderland
     """
 
-    def __init__(self, name: str, species: str, fantastic: bool = False):
+    def __init__(self, name: str, species: str, interpretation: str, fantastic: bool = False):
         
         self.name = name
         self.species = species
         self.fantastic = fantastic
+        self._interpretation = interpretation
         
     @classmethod
     def hero(cls) -> "WonderlandMember":
@@ -20,7 +21,7 @@ class WonderlandMember:
         Returns:
             class: class object
         """
-        return cls("Alice", "human", True)
+        return cls("Alice", "human", "reality", True)
     
     @property
     def mood(self) -> str:
@@ -88,38 +89,38 @@ class StrangeAnimal(WonderlandMember):
         self,
         name: str,
         species: str,
+        interpretation: str,
         artefact: str,
         fantastic: bool = True
     ):
-        super().__init__(name, species, fantastic)
+        super().__init__(name, species, interpretation, fantastic)
         self.artefact = artefact
 
     @classmethod
     def white_rabbit(cls) -> "StrangeAnimal":
         
-        return cls("White Rabbit", "animal", "clock")
+        return cls("White Rabbit", "animal", "cicerone", "clock")
 
 
     def __repr__(self) -> str:
         return (
             f"{self.__class__.__name__}(name='{self.name}', "
-            f"species='{self.species}', artefact='{self.artefact}'"
+            f"species='{self.species}', artefact='{self.artefact}')"
         )
 
 
 if __name__ == "__main__":
-    mad_hat = WonderlandMember("Mad Hat", "something")
+    mad_hat = WonderlandMember('Mad Hat', 'human', 'time', True)
     alice = WonderlandMember.hero()
     url = "https://www.goodreads.com/work/quotes/2933712-alice-in-wonderland"
     quotes = alice.get_quotes(url)
     alice.print_random_quote(quotes)
-    cat = WonderlandMember("Cheshire Cat", "animal")
-    queen = WonderlandMember("Queen of Hearth", "human")
+    cat = WonderlandMember("Cheshire Cat", "animal", "locura")
+    queen = WonderlandMember("Queen of Hearth", "human", "anti-hero")
     print(f"{alice.name} is {alice.mood}")
-    print()
     print(f"{cat.name} is {cat.mood}")
-    print()
     print(f"{queen.name} is {queen.mood}")
+    print()
     caterpillar = WonderlandMember("Caterpillar", "animal", "wise adult")
     print(f'The {caterpillar.name} is an {caterpillar.species} that represents a {caterpillar.interpretation}')
     print("="*70)
@@ -129,5 +130,6 @@ if __name__ == "__main__":
     WonderlandMember.interpretation = 'teacher'
     print(f"Caterpillar interpretation is: a {WonderlandMember.interpretation}")
     rabbit = StrangeAnimal.white_rabbit()
+    print()
     print(rabbit)
     print(f"The {rabbit.name}'s is {rabbit.mood}")
