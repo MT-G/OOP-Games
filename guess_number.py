@@ -163,8 +163,8 @@ class Game(GuessNumber):
         final_number = self.answer(check_1, check_2, third_number)
         print(
             f"{self.player_1.name} says:- The number you have been choosing is {final_number}\n"
-            f"{self.player_2.name} says:- Oh!How have you make it?\n"
-            f"{self.player_1.name} says:- The is maths non magic!\n"
+            f"{self.player_2.name} says:- Oh!How have you made it?\n"
+            f"{self.player_1.name} says:- It is maths non magic!\n"
         )
 
 
