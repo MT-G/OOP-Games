@@ -121,17 +121,17 @@ class Game(GuessNumber):
         self.player_1 = player_1
         self.player_2 = player_2
 
-    # def print_even_odd(self, answer):
-    #     if answer is True:
-    #         return (
-    #             f"{self.player_1.name} says: Is your number even?\n"
-    #             f"{self.player_2.name} says: The number is even."
-    #         )
-    #     else:
-    #         return (
-    #             f"{self.player_1.name} says: Is your number even?\n"
-    #             f"{self.player_2.name} says: No,the number is odd."
-    #         )
+    def print_even_odd(self, answer):
+        if answer is True:
+            return (
+                f"{self.player_1.name} says: Is your number even?\n"
+                f"{self.player_2.name} says: The number is even."
+            )
+        else:
+            return (
+                f"{self.player_1.name} says: Is your number even?\n"
+                f"{self.player_2.name} says: No,the number is odd."
+            )
 
     def pick_number(self) -> int:
         return int(input())
@@ -143,11 +143,11 @@ class Game(GuessNumber):
         number = self.pick_number()
         self.set_number(number)
 
-    def print_even_odd(self, answer):
-        return (
-            f"{self.player_1.name} says: Is your new number even or odd?\n"
-            f"{self.player_2.name} says:{answer}"
-        )
+    # def print_even_odd(self, answer):
+    #     return (
+    #         f"{self.player_1.name} says: Is your new number even or odd?\n"
+    #         f"{self.player_2.name} says:{answer}"
+    #     )
 
     def talk_and_play(self):
         print(
@@ -156,6 +156,7 @@ class Game(GuessNumber):
         print(f"{self.player_2.name} says:- Okay!Picked")
         self.pick_set()
         check_1 = Game.check_odd_even(self.number)
+        # print(check_1)
         print(self.print_even_odd(check_1))
         print(
             f"{self.player_1.name} says:- {self.player_2.name}, multiply your number by 3."
@@ -188,7 +189,5 @@ if __name__ == "__main__":
     rabbit = StrangeAnimal.white_rabbit()
     player_1 = Player(rabbit.name)
     player_2 = Player(alice.name)
-    #initial_number = 3
-    #game = Game(player_1, player_2, initial_number)
     game = Game(player_1, player_2)
     game.talk_and_play()
