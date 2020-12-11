@@ -49,7 +49,7 @@ prune works also if you don't delite packages from your file ```environment.yml`
 
 ## Project Gutenberg Licence
 
-The books used in this repository are in the Public Domain, see the licence.txt file for details.
+The books used in this repository are in the Public Domain, see the [Project Gutenber License](project_gutenber_license.txt) for details.
 
 ### About Project Gutenberg
 
@@ -58,4 +58,4 @@ Please see [Projcet Gutenberg Site](https://www.gutenberg.org/)
 
 ## Licence
 
-This repository is under [MIT License] (MIT_LICENSE.md).
+This repository is under [MIT License] (license.txt).
