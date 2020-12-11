@@ -17,7 +17,7 @@
 
 ## PyDayBCN 2020
 
-Presentation using RISE can be found [here](slides.ipynb)
+Slide for presentation at PyDayBCN 2020 can be found [here](slides.ipynb)
 
 ## Installation
 
@@ -47,7 +47,7 @@ conda env update --file environment.yml  --prune
 ```
 prune works also if you don't delite packages from your file ```environment.yml```
 
-## Project Gutenberg Licence
+## Project Gutenberg License
 
 The books used in this repository are in the Public Domain, see the [Project Gutenber License](project_gutenber_license.txt) for details.
 
@@ -56,6 +56,6 @@ The books used in this repository are in the Public Domain, see the [Project Gut
 Project Gutenberg is a project to collect and archive public domain texts.
 Please see [Projcet Gutenberg Site](https://www.gutenberg.org/)
 
-## Licence
+## License
 
-This repository is under [MIT License] (license.txt).
+This repository is under [MIT License] (licence.txt).
