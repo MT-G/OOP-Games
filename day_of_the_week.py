@@ -5,12 +5,18 @@ Topic: Game
 This module implements a method for retrieving the day of the week from a date.
 Lewis Carroll, To Find the Day of the Week for any Given Date, Nature, Nature, 1887
 Steps for the algoritm:
-Take the given date in 4 portions, viz. the number of centuries, the number of years over, the month, the day of the month.
-Compute the following 4 items, adding each, when found, to the total of the previous items. When an item or total exceeds 7, divide by 7, and keep the remainder only.
-Century-item: For 'Old Style' (which ended 2 September 1752) subtract from 18. For 'New Style' (which began 14 September 1752) divide by 4, take overplus from 3, multiply remainder by 2.
+Take the given date in 4 portions, viz. the number of centuries, the number of years over, 
+the month, the day of the month.
+Compute the following 4 items, adding each, when found, to the total of the previous items. 
+When an item or total exceeds 7, divide by 7, and keep the remainder only.
+Century-item: For 'Old Style' (which ended 2 September 1752) subtract from 18. 
+For 'New Style' (which began 14 September 1752) divide by 4, take overplus from 3, multiply remainder by 2.
 Year-item: Add together the number of dozens, the overplus, and the number of 4s in the overplus.
-Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year, from 10. This, plus its number of days, gives the item for the following month. The item for January is "0"; for February or March, "3"; for December, "12".
-Day-item: The total, thus reached, must be corrected, by deducting "1" (first adding 7, if the total be "0"), if the date be January or February in a leap year, remembering that every year, divisible by 4, is a Leap Year, excepting only the century-years, in `New Style', when the number of centuries is not so divisible (e.g. 1800).
+Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year, from 10. 
+This, plus its number of days, gives the item for the following month. The item for January is "0"; 
+for February or March, "3"; for December, "12".
+Day-item: The total, thus reached, must be corrected, by deducting "1" (first adding 7, if the total be "0"), 
+if the date be January or February in a leap year, remembering that every year, divisible by 4, is a Leap Year, excepting only the century-years, in `New Style', when the number of centuries is not so divisible (e.g. 1800).
 The final result gives the day of the week, "0" meaning Sunday, "1" Monday, and so on.
 """
 
@@ -158,7 +164,8 @@ class DayOfTheWeek:
         else:
             m_1 = 10 - (month_number - 1)
 
-        num_day = DayOfTheWeek.number_days_month(self.date.full_year, month_number - 1)
+        num_day = DayOfTheWeek.number_days_month(
+            self.date.full_year, month_number - 1)
 
         m_2 = num_day + m_1
 
@@ -186,7 +193,6 @@ class DayOfTheWeek:
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(data='{self.data}')"
-
 
 
 class Game(DayOfTheWeek):
