@@ -145,11 +145,6 @@ class DayOfTheWeek:
             else:
                 return 30
 
-    # Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year,
-    # from 10. This, plus its number of days, gives the item for the following month.
-    # The item for January is "0"; for February or March, "3"; for December, "12".
-
-    # @check_less_that_seven
     def month_item(self):
 
         months_dic = {
