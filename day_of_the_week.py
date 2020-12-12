@@ -210,7 +210,7 @@ class Game(DayOfTheWeek):
 
 
 if __name__ == "__main__":
-    alice = WonderlandMembe.hero()
+    alice = WonderlandMember.hero()
     rabbit = StrangeAnimal.white_rabbit()
     player_1 = Player(rabbit.name)
     player_2 = Player(alice.name)
