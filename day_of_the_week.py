@@ -202,7 +202,7 @@ class Game(DayOfTheWeek):
 
     def talk_and_play(self):
 
-        print(f"{self.player_1.name} says: What day of the week was 9 November 2020?")
+        print(f"{self.player_1.name} says: What day of the week was {self.date.full_year} {self.date.month} {self.date.day}?")
         print(f"{self.player_2.name} says: I dont know!")
         print(f"{self.player_1.name} says: It was {self.answer()}")
         print(f"{self.player_2.name} says: Wow, how have you make it!")
@@ -215,6 +215,6 @@ if __name__ == "__main__":
     player_1 = Player(rabbit.name)
     player_2 = Player(alice.name)
     # print(player_1.check_who_plays())
-    date = Date("2020", "December", "12")
+    date = Date("2020", "December", "11")
     game = Game(date, player_1, player_2)
     game.talk_and_play()
