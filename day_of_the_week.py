@@ -5,18 +5,12 @@ Topic: Game
 This module implements a method for retrieving the day of the week from a date.
 Lewis Carroll, To Find the Day of the Week for any Given Date, Nature, Nature, 1887
 Steps for the algoritm:
-Take the given date in 4 portions, viz. the number of centuries, the number of years over, 
-the month, the day of the month.
-Compute the following 4 items, adding each, when found, to the total of the previous items. 
-When an item or total exceeds 7, divide by 7, and keep the remainder only.
-Century-item: For 'Old Style' (which ended 2 September 1752) subtract from 18. 
-For 'New Style' (which began 14 September 1752) divide by 4, take overplus from 3, multiply remainder by 2.
+Take the given date in 4 portions, viz. the number of centuries, the number of years over, the month, the day of the month.
+Compute the following 4 items, adding each, when found, to the total of the previous items. When an item or total exceeds 7, divide by 7, and keep the remainder only.
+Century-item: For 'Old Style' (which ended 2 September 1752) subtract from 18. For 'New Style' (which began 14 September 1752) divide by 4, take overplus from 3, multiply remainder by 2.
 Year-item: Add together the number of dozens, the overplus, and the number of 4s in the overplus.
-Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year, from 10. 
-This, plus its number of days, gives the item for the following month. The item for January is "0"; 
-for February or March, "3"; for December, "12".
-Day-item: The total, thus reached, must be corrected, by deducting "1" (first adding 7, if the total be "0"), 
-if the date be January or February in a leap year, remembering that every year, divisible by 4, is a Leap Year, excepting only the century-years, in `New Style', when the number of centuries is not so divisible (e.g. 1800).
+Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year, from 10. This, plus its number of days, gives the item for the following month. The item for January is "0"; for February or March, "3"; for December, "12".
+Day-item: The total, thus reached, must be corrected, by deducting "1" (first adding 7, if the total be "0"), if the date be January or February in a leap year, remembering that every year, divisible by 4, is a Leap Year, excepting only the century-years, in `New Style', when the number of centuries is not so divisible (e.g. 1800).
 The final result gives the day of the week, "0" meaning Sunday, "1" Monday, and so on.
 """
 
@@ -151,25 +145,29 @@ class DayOfTheWeek:
             else:
                 return 30
 
-    @check_less_that_seven
+    # Month-item: If it begins or ends with a vowel, subtract the number, denoting its place in the year,
+    # from 10. This, plus its number of days, gives the item for the following month.
+    # The item for January is "0"; for February or March, "3"; for December, "12".
+
+    # @check_less_that_seven
     def month_item(self):
 
-        # check if the month starts and end with vowels
-        vowels = tuple("aeiouyAEIOUY")
-        month_number = DayOfTheWeek.month_converter(self.date.month)
+        months_dic = {
+            "Jenuary": 0,
+            "February": 3,
+            "March": 3,
+            "April": 6,
+            "May": 1,
+            "June": 4,
+            "July": 6,
+            "August": 2,
+            "September": 5,
+            "October": 0,
+            "November": 3,
+            "December": 5
+        }
 
-        if self.date.month.startswith(vowels) or self.date.month.endswith(vowels):
-            m_1 = 10 - month_number
-
-        else:
-            m_1 = 10 - (month_number - 1)
-
-        num_day = DayOfTheWeek.number_days_month(
-            self.date.full_year, month_number - 1)
-
-        m_2 = num_day + m_1
-
-        return m_2
+        return months_dic[self.date.month]
 
     @check_less_that_seven
     def do_calculation(self):
@@ -217,6 +215,6 @@ if __name__ == "__main__":
     player_1 = Player(rabbit.name)
     player_2 = Player(alice.name)
     # print(player_1.check_who_plays())
-    date = Date("2020", "November", "9")
+    date = Date("2020", "December", "12")
     game = Game(date, player_1, player_2)
     game.talk_and_play()
