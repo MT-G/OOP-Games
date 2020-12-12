@@ -214,7 +214,7 @@ if __name__ == "__main__":
     rabbit = StrangeAnimal.white_rabbit()
     player_1 = Player(rabbit.name)
     player_2 = Player(alice.name)
-    print(player_1.check_who_plays())
+    # print(player_1.check_who_plays())
     date = Date("2020", "December", "12")
     game = Game(date, player_1, player_2)
     game.talk_and_play()
